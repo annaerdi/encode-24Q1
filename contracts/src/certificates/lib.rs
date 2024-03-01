@@ -50,7 +50,7 @@ mod certificates {
         /// Verify a student's certificate.
         #[ink(message)]
         pub fn verify_certificate(&self, student_id: AccountId, course_id: String) -> Option<String> {
-            self.certificates.get(&(student_id, course_id))
+            self.certificate.get(&(student_id, course_id))
         }
 
     }
