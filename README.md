@@ -1,3 +1,33 @@
+# Blockchain-Based Learning Platform Certification
+
+This project is based on and inspired by the ink!athon workshop. Leveraging the knowledge 
+gained from the workshop, we decided to create a project that focuses on storing educational achievements, 
+like notes and certificates, on the blockchain. The goal is to make these documents secure, verifiable, 
+and easily accessible.
+
+## Problem Statement
+
+In the traditional education system, the process of storing, verifying, and sharing educational 
+achievements, such as notes and certificates, is often cumbersome, time-consuming, and prone to security 
+issues. This can lead to challenges in proving educational qualifications and ensuring their authenticity. 
+
+
+## Blockchain-Based Solution
+Our project addresses these problems by using smart-contracts to create a secure, transparent, 
+and efficient method for managing educational documents, making them easily accessible and verifiable globally.
+
+There are numerous advantages of using blockchain for educational records, including but not limited to:
+- **Immutable by default.** Once data is on the blockchain, it stays as it is. This means educational records are kept safe and secure, just as they were originally made, so fake certificates or changes to real ones are very hard to make.
+- **Transparent yet private.** The blockchain provides a transparent system where everyone can access and verify educational records without making any changes. However, it ensures privacy by using encryption and pseudonyms, allowing individuals to share their educational achievements without exposing personal details, striking a balance between openness and confidentiality.
+- **Access from anywhere.** Blockchain works all over the world. This means no matter where you are, you can access your educational records easily.
+- **Quick checks.** Normally, checking someone's educational background takes a lot of time and effort. Blockchain makes this quicker and simpler, with no need for middlemen.
+
+
+---
+
+The following section is the original README from the ink!athon boilerplate. 
+Please refer to it for a detailed explanation on how to run the project.
+
 ![inkathon Devtooling Banner](inkathon-devtooling-banner.png)
 
 # ink!athon Boilerplate
