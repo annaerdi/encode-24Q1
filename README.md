@@ -33,6 +33,8 @@ The project is divided into two main parts: the smart contract and the frontend.
 The smart contract is written in Rust using the ink! framework, and the frontend is 
 built using Next.js and TypeScript.
 
+### Save certificate
+
 ![sequence_diagram](sequence-diagram-01.png)
 
 This diagram illustrates the following workflow:
@@ -44,6 +46,8 @@ This diagram illustrates the following workflow:
 5. The Blockchain confirms the transaction back to the Smart Contract.
 6. The Smart Contract indicates transaction success back to the Platform.
 7. Finally, the Platform notifies the Student that the certificate has been successfully saved on the blockchain.
+
+### Verify certificate
 
 ![sequence_diagram](sequence-diagram-02.png)
 
