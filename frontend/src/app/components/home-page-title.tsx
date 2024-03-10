@@ -5,7 +5,7 @@ import { AnchorHTMLAttributes, FC } from 'react'
 import githubIcon from 'public/icons/github-button.svg'
 import telegramIcon from 'public/icons/telegram-button.svg'
 import vercelIcon from 'public/icons/vercel-button.svg'
-import inkathonLogo from 'public/images/inkathon-logo.png'
+import inkathonLogo from 'public/images/books.png'
 
 import { cn } from '@/utils/cn'
 
@@ -27,9 +27,9 @@ const StyledIconLink: React.FC<StyledIconLinkProps> = ({ className, children, ..
 )
 
 export const HomePageTitle: FC = () => {
-  const title = 'ink!athon'
-  const desc = 'Full-Stack DApp Boilerplate for ink! Smart Contracts'
-  const githubHref = 'https://github.com/scio-labs/inkathon'
+  const title = 'TrustEd Records'
+  const desc = 'A Blockchain-Based Learning Platform Certification'
+  const githubHref = 'https://github.com/annaerdi/envode-24Q1'
   const deployHref = 'https://github.com/scio-labs/inkathon#deployment-'
   const telegramHref = 'https://t.me/inkathon'
 
@@ -52,27 +52,19 @@ export const HomePageTitle: FC = () => {
         <p className="mb-8 text-xs text-gray-600">
           Built by{' '}
           <a
-            href="https://zoma.dev"
+            href="https://github.com/annaerdi"
             target="_blank"
             className="font-semibold text-gray-600 hover:text-gray-300"
           >
-            Dennis Zoma
+            Anna Erdi
           </a>{' '}
           &{' '}
           <a
-            href="https://scio.xyz"
+            href="https://github.com/fridofrodo"
             target="_blank"
             className="font-semibold text-gray-600 hover:text-gray-300"
           >
-            Scio Labs
-          </a>
-          . Supported by{' '}
-          <a
-            href="https://alephzero.org"
-            target="_blank"
-            className="font-semibold text-gray-600 hover:text-gray-300"
-          >
-            Aleph Zero
+            Fridolin Drucker
           </a>
           .
         </p>
