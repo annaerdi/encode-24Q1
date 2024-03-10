@@ -1,0 +1,3 @@
+{
+"CertificateIssued": {"name":"CertificateIssued","body":{"studentId":{"name":"AccountId","body":"string | number[]","isResult":false,"isPrimitive":true,"isConvertable":false},"courseId":{"name":"string","isResult":false,"isPrimitive":true,"isConvertable":false},"certificateHash":{"name":"string","isResult":false,"isPrimitive":true,"isConvertable":false}},"isResult":false,"isPrimitive":false,"isConvertable":false}
+}

@@ -1,6 +1,6 @@
 {
   "source": {
-    "hash": "0x56c6b3bbcb844eb6d9b55af63ec933d0c0db346649d79e573058445a6c9a5660",
+    "hash": "0x07075670b744dd7860ee0509c26c8195cf6b0347d04362b5ba8fbf042acb6cce",
     "language": "ink! 4.3.0",
     "compiler": "rustc 1.74.1",
     "build_info": {
@@ -14,30 +14,18 @@
     }
   },
   "contract": {
-    "name": "greeter",
-    "version": "0.0.1",
+    "name": "certificates",
+    "version": "0.1.0",
     "authors": [
-      "Scio Labs <hello@scio.xyz>"
+      "[your_name] <[your_email]>"
     ]
   },
   "spec": {
     "constructors": [
       {
-        "args": [
-          {
-            "label": "init_value",
-            "type": {
-              "displayName": [
-                "String"
-              ],
-              "type": 0
-            }
-          }
-        ],
+        "args": [],
         "default": false,
-        "docs": [
-          "Creates a new greeter contract initialized with the given value."
-        ],
+        "docs": [],
         "label": "new",
         "payable": false,
         "returnType": {
@@ -52,9 +40,7 @@
       {
         "args": [],
         "default": false,
-        "docs": [
-          "Creates a new greeter contract initialized to 'Hello ink!'."
-        ],
+        "docs": [],
         "label": "default",
         "payable": false,
         "returnType": {
@@ -73,7 +59,7 @@
         "displayName": [
           "AccountId"
         ],
-        "type": 6
+        "type": 4
       },
       "balance": {
         "displayName": [
@@ -112,19 +98,30 @@
         "args": [
           {
             "docs": [],
-            "indexed": false,
-            "label": "from",
+            "indexed": true,
+            "label": "student_id",
             "type": {
               "displayName": [
-                "Option"
+                "AccountId"
               ],
-              "type": 5
+              "type": 4
+            }
+          },
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "course_id",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 0
             }
           },
           {
             "docs": [],
             "indexed": false,
-            "label": "message",
+            "label": "certificate_hash",
             "type": {
               "displayName": [
                 "String"
@@ -133,8 +130,10 @@
             }
           }
         ],
-        "docs": [],
-        "label": "Greeted"
+        "docs": [
+          "Emitted when a new certificate is issued."
+        ],
+        "label": "CertificateIssued"
       }
     ],
     "lang_error": {
@@ -146,27 +145,27 @@
     },
     "messages": [
       {
-        "args": [],
-        "default": false,
-        "docs": [
-          " Returns the current value of `message`."
-        ],
-        "label": "greet",
-        "mutates": false,
-        "payable": false,
-        "returnType": {
-          "displayName": [
-            "ink",
-            "MessageResult"
-          ],
-          "type": 4
-        },
-        "selector": "0x052cda08"
-      },
-      {
         "args": [
           {
-            "label": "new_value",
+            "label": "student_id",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 4
+            }
+          },
+          {
+            "label": "course_id",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 0
+            }
+          },
+          {
+            "label": "certificate_hash",
             "type": {
               "displayName": [
                 "String"
@@ -177,9 +176,9 @@
         ],
         "default": false,
         "docs": [
-          " Sets `message` to the given value."
+          " Issue a certificate to a student."
         ],
-        "label": "set_message",
+        "label": "issue_certificate",
         "mutates": true,
         "payable": false,
         "returnType": {
@@ -189,7 +188,44 @@
           ],
           "type": 1
         },
-        "selector": "0x1fe7426f"
+        "selector": "0x6fa89954"
+      },
+      {
+        "args": [
+          {
+            "label": "student_id",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 4
+            }
+          },
+          {
+            "label": "course_id",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 0
+            }
+          }
+        ],
+        "default": false,
+        "docs": [
+          " Verify a student's certificate."
+        ],
+        "label": "verify_certificate",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 7
+        },
+        "selector": "0x6d3a5767"
       }
     ]
   },
@@ -200,15 +236,20 @@
           "fields": [
             {
               "layout": {
-                "leaf": {
-                  "key": "0x00000000",
-                  "ty": 0
+                "root": {
+                  "layout": {
+                    "leaf": {
+                      "key": "0xfad25c8f",
+                      "ty": 0
+                    }
+                  },
+                  "root_key": "0xfad25c8f"
                 }
               },
-              "name": "message"
+              "name": "certificate"
             }
           ],
-          "name": "Greeter"
+          "name": "Certificates"
         }
       },
       "root_key": "0x00000000"
@@ -296,12 +337,51 @@
       "id": 4,
       "type": {
         "def": {
+          "composite": {
+            "fields": [
+              {
+                "type": 5,
+                "typeName": "[u8; 32]"
+              }
+            ]
+          }
+        },
+        "path": [
+          "ink_primitives",
+          "types",
+          "AccountId"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": {
+        "def": {
+          "array": {
+            "len": 32,
+            "type": 6
+          }
+        }
+      }
+    },
+    {
+      "id": 6,
+      "type": {
+        "def": {
+          "primitive": "u8"
+        }
+      }
+    },
+    {
+      "id": 7,
+      "type": {
+        "def": {
           "variant": {
             "variants": [
               {
                 "fields": [
                   {
-                    "type": 0
+                    "type": 8
                   }
                 ],
                 "index": 0,
@@ -322,7 +402,7 @@
         "params": [
           {
             "name": "T",
-            "type": 0
+            "type": 8
           },
           {
             "name": "E",
@@ -335,7 +415,7 @@
       }
     },
     {
-      "id": 5,
+      "id": 8,
       "type": {
         "def": {
           "variant": {
@@ -347,7 +427,7 @@
               {
                 "fields": [
                   {
-                    "type": 6
+                    "type": 0
                   }
                 ],
                 "index": 1,
@@ -359,51 +439,12 @@
         "params": [
           {
             "name": "T",
-            "type": 6
+            "type": 0
           }
         ],
         "path": [
           "Option"
         ]
-      }
-    },
-    {
-      "id": 6,
-      "type": {
-        "def": {
-          "composite": {
-            "fields": [
-              {
-                "type": 7,
-                "typeName": "[u8; 32]"
-              }
-            ]
-          }
-        },
-        "path": [
-          "ink_primitives",
-          "types",
-          "AccountId"
-        ]
-      }
-    },
-    {
-      "id": 7,
-      "type": {
-        "def": {
-          "array": {
-            "len": 32,
-            "type": 8
-          }
-        }
-      }
-    },
-    {
-      "id": 8,
-      "type": {
-        "def": {
-          "primitive": "u8"
-        }
       }
     },
     {
@@ -421,7 +462,7 @@
           "composite": {
             "fields": [
               {
-                "type": 7,
+                "type": 5,
                 "typeName": "[u8; 32]"
               }
             ]

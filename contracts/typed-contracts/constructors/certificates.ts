@@ -4,8 +4,8 @@ import type {ApiPromise} from "@polkadot/api";
 import {_genValidGasLimitAndValue, _signAndSend, SignAndSendSuccessResponse} from "@727-ventures/typechain-types";
 import type {ConstructorOptions} from "@727-ventures/typechain-types";
 import type {WeightV2} from "@polkadot/types/interfaces";
-import type * as ArgumentTypes from '../types-arguments/greeter';
-import { ContractFile } from '../contract-info/greeter';
+import type * as ArgumentTypes from '../types-arguments/certificates';
+import { ContractFile } from '../contract-info/certificates';
 import type BN from 'bn.js';
 
 export default class Constructors {
@@ -23,10 +23,8 @@ export default class Constructors {
 	/**
 	* new
 	*
-	* @param { string } initValue,
 	*/
    	async "new" (
-		initValue: string,
 		__options ? : ConstructorOptions,
    	) {
    		const __contract = JSON.parse(ContractFile);
@@ -34,7 +32,7 @@ export default class Constructors {
 		const gasLimit = (await _genValidGasLimitAndValue(this.nativeAPI, __options)).gasLimit as WeightV2;
 
 		const storageDepositLimit = __options?.storageDepositLimit;
-			const tx = code.tx["new"]!({ gasLimit, storageDepositLimit, value: __options?.value }, initValue);
+			const tx = code.tx["new"]!({ gasLimit, storageDepositLimit, value: __options?.value }, );
 			let response;
 
 			try {
