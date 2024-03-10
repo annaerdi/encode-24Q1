@@ -29,7 +29,7 @@ const StyledIconLink: React.FC<StyledIconLinkProps> = ({ className, children, ..
 export const HomePageTitle: FC = () => {
   const title = 'TrustEd Records'
   const desc = 'A Blockchain-Based Learning Platform Certification'
-  const githubHref = 'https://github.com/annaerdi/envode-24Q1'
+  const githubHref = 'https://github.com/annaerdi/encode-24Q1'
   const deployHref = 'https://github.com/scio-labs/inkathon#deployment-'
   const telegramHref = 'https://t.me/inkathon'
 
