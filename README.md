@@ -61,6 +61,10 @@ This process includes:
 6. The Smart Contract relays this verification result back to the Platform.
 7. The Platform informs the User of the verification outcome, confirming whether the certificate is valid and unaltered.
 
+## Demo
+
+https://youtu.be/OjPAjrEhFy8
+
 
 ---
 
