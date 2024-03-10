@@ -32,9 +32,6 @@ export default function HomePage() {
           {/* Chain Metadata Information */}
           <ChainInfo />
 
-          {/* Greeter Read/Write Contract Interactions */}
-          <GreeterContractInteractions />
-
           {/* Custom Contract Interactions */}
           <CertificatePlatformInteractions />
 
