@@ -1,4 +1,8 @@
-# Blockchain-Based Learning Platform Certification
+# TrustEd Records
+
+A Blockchain-Based Learning Platform Certification
+
+## Introduction
 
 This project is based on and inspired by the ink!athon workshop. Leveraging the knowledge 
 gained from the workshop, we decided to create a project that focuses on storing educational achievements, 
@@ -21,6 +25,37 @@ There are numerous advantages of using blockchain for educational records, inclu
 - **Transparent yet private.** The blockchain provides a transparent system where everyone can access and verify educational records without making any changes. However, it ensures privacy by using encryption and pseudonyms, allowing individuals to share their educational achievements without exposing personal details, striking a balance between openness and confidentiality.
 - **Access from anywhere.** Blockchain works all over the world. This means no matter where you are, you can access your educational records easily.
 - **Quick checks.** Normally, checking someone's educational background takes a lot of time and effort. Blockchain makes this quicker and simpler, with no need for middlemen.
+
+
+## How does it work?
+
+The project is divided into two main parts: the smart contract and the frontend. 
+The smart contract is written in Rust using the ink! framework, and the frontend is 
+built using Next.js and TypeScript.
+
+![sequence_diagram](sequence-diagram-01.png)
+
+This diagram illustrates the following workflow:
+
+1. The Student completes a course on the Platform.
+2. The Platform generates a unique hash that encapsulates the studentID, courseID, and grade.
+3. The Platform requests the Smart Contract to save the certificate on the Blockchain.
+4. The Smart Contract saves the certificate hash on the Blockchain.
+5. The Blockchain confirms the transaction back to the Smart Contract.
+6. The Smart Contract indicates transaction success back to the Platform.
+7. Finally, the Platform notifies the Student that the certificate has been successfully saved on the blockchain.
+
+![sequence_diagram](sequence-diagram-02.png)
+
+This process includes:
+
+1. User requests the verification of a certificate from the Platform.
+2. The Platform generates a hash from the certificate data (studentID, courseID, grade).
+3. The Platform submits this generated hash to the Smart Contract for verification.
+4. The Smart Contract compares the generated hash with the hash stored on the Blockchain.
+5. The Blockchain returns the verification result to the Smart Contract, indicating whether there is a match or no match.
+6. The Smart Contract relays this verification result back to the Platform.
+7. The Platform informs the User of the verification outcome, confirming whether the certificate is valid and unaltered.
 
 
 ---
